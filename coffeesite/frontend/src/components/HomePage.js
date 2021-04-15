@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NewOfferPage from "./CreateOffer";
+import OfferList from "./OfferList";
 import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core";
 import {
   BrowserRouter as Router,
@@ -22,7 +23,7 @@ function Home(props) {
               <Button color="primary" to="/create" component={Link}>
                 Create Offer
               </Button>
-              <Button color="secondary" to="/search" component={Link}>
+              <Button color="secondary" to="/offers" component={Link}>
                 Search Offers
               </Button>
             </ButtonGroup>
@@ -30,7 +31,8 @@ function Home(props) {
         </Grid>
   );
 }
-function HomePage(props)  {
+
+export default function HomePage(props)  {
     return (
       <Router>
         <Switch>
@@ -38,8 +40,8 @@ function HomePage(props)  {
             <Home />
           </Route>
           <Route path="/create" component = {NewOfferPage} />
+          <Route path="/offers" component = {OfferList} />
         </Switch>
       </Router>
     );
   }
-export default HomePage;

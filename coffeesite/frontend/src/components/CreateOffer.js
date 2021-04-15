@@ -18,7 +18,6 @@ function saveOffer(type, quantity, props) {
     fetch("/api/create-offer", requestOptions)
       .then((response) => console.log(response.json())) 
       .then((data) => props.history.push("/"));
-
   }
 
 function CreateOffer(probs) {
@@ -26,13 +25,13 @@ function CreateOffer(probs) {
     const [quantity, setQuantity] = useState("1");
     return (
         <div>
-            <mui.Grid container spacing={1}>
-                <mui.Grid item xs={12} align="center">
+            <mui.Grid container spacing={1} align="center">
+                <mui.Grid item xs={12}>
                     <mui.Typography component="h4" variant="h4">
                         Create a New Coffee Offer
                     </mui.Typography>
                 </mui.Grid>
-                <mui.Grid item xs={12} align="center">
+                <mui.Grid item xs={12}>
                     <mui.FormControl component="fieldset">
                         <mui.FormHelperText>
                             <div align="center">Name of Coffee</div>
@@ -53,7 +52,7 @@ function CreateOffer(probs) {
                         </mui.RadioGroup>
                     </mui.FormControl>
                 </mui.Grid>
-                <mui.Grid item xs={12} align="center">
+                <mui.Grid item xs={12}>
                     <mui.FormControl>
                         <mui.TextField required={true} type="number" defaultValue="1" onChange={(e) => {setQuantity(e.target.value);}} inputProps={{min: 1, style: { textAlign: "center" },}}/>
                         <mui.FormHelperText>
@@ -62,13 +61,13 @@ function CreateOffer(probs) {
                     </mui.FormControl>
                 </mui.Grid>
             </mui.Grid>
-            <mui.Grid container spacing={1}>
-            <mui.Grid item xs={12} align="center">
+            <mui.Grid container spacing={1} align="center">
+            <mui.Grid item xs={12}>
             <mui.Button color="primary" variant="contained" onClick={() => saveOffer(type, quantity, probs)}>
                 Create Offer
             </mui.Button>
             </mui.Grid>
-            <mui.Grid item xs={12} align="center">
+            <mui.Grid item xs={12}>
             <mui.Button color="secondary" variant="contained" to="/" component={rrd.Link}>
                 Back
             </mui.Button>
